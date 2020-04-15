@@ -1,7 +1,9 @@
-import firebase from 'firebase'
-import app from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/firebase-firestore'
+// import firebase from 'firebase'
+// import app from 'firebase/app'
+// import 'firebase/auth'
+// import 'firebase/firebase-firestore'
+
+const firebase = require('firebase')
 
 const config = {
     apiKey: "AIzaSyBwKXh8edI4I06KfvK42BBWxN__Wq4CWe0",
@@ -18,10 +20,11 @@ const config = {
 class Firebase {
     constructor() {
         // Initialize Firebase
-        app.initializeApp(config);
-        // app.analytics();
-        this.auth = app.auth()
-        this.db = app.firestore()
+        firebase.initializeApp(config);
+        firebase.analytics();
+        
+        this.auth = firebase.auth()
+        this.db = firebase.firestore()
     }
 
     login(email, password) {
